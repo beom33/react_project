@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import'./i18n';
+import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter } from 'react-router-dom';
+import ErrorPage from './commons/pages/Error';
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <helmetProvider>
-           <App />
-    </helmetProvider>
+    <ErrorPage>
+    <HelmetProvider>
+      <BrowserRouter>
+      <App />
+      </BrowserRouter>
+    </HelmetProvider>
+    </ErrorPage>
   </React.StrictMode>,
 );
 

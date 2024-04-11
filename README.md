@@ -136,8 +136,15 @@ import'./i18n';
 
 - 적용하기 : useTranslation  훅 / react-i18next
  - t : 메세지 조회 함수 
- - i18n: 편의 긴으 객체, changeLanguage(..) : 언어변경
+ - i18n: 편의 기능 객체, changeLanguage(..) : 언어변경
 
 
 
 
+# 스타일링
+## 공통 스타일 : src/index.css
+- 공통 폰트
+- 스타일 초기화 
+- 기준 폰트 사이즈 : styles/fontSize.js / small, normal, medium, big, extrabig
+
+기준컬러: primary, Secondary, Success, Danger, Warning, info, Light, Dark

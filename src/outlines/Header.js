@@ -68,7 +68,7 @@ const Header = () => {
             to="/member/join"
             className={({ isActive }) => classNames({ on: isActive })}
           >
-            ({t('회원가입')})
+            {t('회원가입')}
           </NavLink>
           <NavLink
             to="/member/login"

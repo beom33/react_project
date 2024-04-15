@@ -8,7 +8,7 @@ import { FaSearch } from 'react-icons/fa';
 
 import fontSize from '../styles/frontSize';
 import { color } from '../styles/color';
-import logo from '../images/logo.png';
+import logo from '../images/logo2.png';
 
 import MainMenus from './MainMenus';
 

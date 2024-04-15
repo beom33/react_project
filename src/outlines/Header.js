@@ -10,6 +10,9 @@ import fontSize from '../styles/frontSize';
 import { color } from '../styles/color';
 import logo from '../images/logo.png';
 
+import MainMenus from './MainMenus';
+
+
 const { primary, dark, light } = color;
 
 const HeaderBox = styled.header`
@@ -48,9 +51,20 @@ const HeaderBox = styled.header`
 
         button {
           width: 45px;
+          background: ${dark};
+          border: 0;
+          cursor: pointer;
+          
+          svg{
+            color: ${light};
+            font-size: 1.75rem;
+          }
         }
+        
         input[type='text'] {
-          flex-grow: 1;
+          flex-grow: 1; 
+          border: 5px solid ${dark};
+          padding: 0 10px;
         }
       }
     }
@@ -91,6 +105,7 @@ const Header = () => {
           </form>
         </div>
       </section>
+      <MainMenus/>
     </HeaderBox>
   );
 };

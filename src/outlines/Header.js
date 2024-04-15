@@ -12,7 +12,6 @@ import logo from '../images/logo2.png';
 
 import MainMenus from './MainMenus';
 
-
 const { primary, dark, light } = color;
 
 const HeaderBox = styled.header`
@@ -37,12 +36,18 @@ const HeaderBox = styled.header`
     }
   }
 
-  .logo-serch {
+  .logo-search {
     div {
       display: flex;
       justify-content: space-between;
       height: 150px;
       align-items: center;
+
+      .logo {
+        img {
+          height: 100px;
+        }
+      }
 
       form {
         display: flex;
@@ -54,15 +59,15 @@ const HeaderBox = styled.header`
           background: ${dark};
           border: 0;
           cursor: pointer;
-          
-          svg{
+
+          svg {
             color: ${light};
             font-size: 1.75rem;
           }
         }
-        
+
         input[type='text'] {
-          flex-grow: 1; 
+          flex-grow: 1;
           border: 5px solid ${dark};
           padding: 0 10px;
         }
@@ -94,7 +99,7 @@ const Header = () => {
       </section>
       <section className="logo-search">
         <div className="layout-width">
-          <Link to="/">
+          <Link to="/" className="logo">
             <img src={logo} alt={t('로고')} />
           </Link>
           <form autoComplete="off">
@@ -105,7 +110,7 @@ const Header = () => {
           </form>
         </div>
       </section>
-      <MainMenus/>
+      <MainMenus />
     </HeaderBox>
   );
 };

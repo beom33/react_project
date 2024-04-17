@@ -4,44 +4,97 @@ import styled from 'styled-components';
 import { FaCheckSquare, FaRegCheckSquare } from 'react-icons/fa';
 import { BigButton, ButtonGroup } from '../../commons/components/Button';
 import InputBox from '../../commons/components/InputBox';
+import MessageBox from '../../commons/components/MessageBox';
+const FormBox = styled.form`
+  dl {
+    display: flex;
+    align-items: center;
 
-const FormBox = styled.form``;
+    dt {
+      width: 120px;
+    }
+    dd {
+      flex-grow: 1;
+    }
+  }
 
-const JoinForm = () => {
+  dl + dl {
+    margin-top: 5px;
+  }
+
+  .terms-agree {
+    text-align: center;
+    margin: 15px 0;
+
+    svg {
+      font-size: 1.5 rem;
+      vertical-align: middle;
+    }
+  }
+`;
+
+const JoinForm = ({ form, onSubmit, onChange, onToggle, onReset, errors }) => {
   const { t } = useTranslation();
   return (
-    <FormBox autoComplete="off">
+    <FormBox autoComplete="off" onSubmit={onSubmit}>
       <dl>
         <dt>{t('이메일')}</dt>
         <dd>
-          <InputBox type="text" />
+          <InputBox
+            type="text"
+            name="email"
+            value={form.email ?? ''}
+            onChange={onChange}
+          />
+          <MessageBox messages={errors.email} color="danger" />
         </dd>
       </dl>
       <dl>
         <dt>{t('비밀번호')}</dt>
         <dd>
-          <InputBox type="password" />
+          <InputBox
+            type="password"
+            name="password"
+            value={form.password ?? ''}
+            onChange={onChange}
+          />
+          <MessageBox messages={errors.password} color="danger" />
         </dd>
       </dl>
       <dl>
         <dt>{t('비밀번호 _확인')}</dt>
         <dd>
-          <InputBox type="password" />
+          <InputBox
+            type="password"
+            name="confirmPassword"
+            value={form.confirmPassword ?? ''}
+            onChange={onChange}
+          />
+          <MessageBox messages={errors.confirmPassword} color="danger" />
         </dd>
       </dl>
       <dl>
         <dt>{t('회원명')}</dt>
         <dd>
-          <InputBox type="text" />
+          <InputBox
+            type="text"
+            name="name"
+            value={form.name ?? ''}
+            onChange={onChange}
+          />
+          <MessageBox messages={errors.name} color="danger" />
         </dd>
       </dl>
 
-      <div className="terms-agree">
-        <FaCheckSquare /> {t('회원가입_약관에_동의합니다.')}
+      <div className="terms-agree" onClick={onToggle}>
+        {form.agree ? <FaCheckSquare /> : <FaRegCheckSquare />}
+        {t('회원가입_약관에_동의합니다.')}
+
+        <MessageBox messages={errors.agree} color="danger" />
       </div>
 
       <ButtonGroup width={450}>
-        <BigButton type="reset" color="light">
+        <BigButton type="button" color="light" onClick={onReset}>
           {t('다시입력')}
         </BigButton>
 

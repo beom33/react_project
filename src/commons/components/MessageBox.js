@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { color } from '../../styles/color';
-import fontSize from '../../styles/frontSize';
+import fontSize from '../../styles/fontSize';
 const { small } = fontSize;
 
 const Box = styled.div`

@@ -37,6 +37,8 @@ const JoinForm = ({ form, onSubmit, onChange, onToggle, onReset, errors }) => {
   const { t } = useTranslation();
   return (
     <FormBox autoComplete="off" onSubmit={onSubmit}>
+ 
+ 
       <dl>
         <dt>{t('이메일')}</dt>
         <dd>
